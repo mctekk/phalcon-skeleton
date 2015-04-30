@@ -1,0 +1,10 @@
+vendor/
+composer.lock
+app/cache/
+app/logs
+._*
+.composer/
+.ssh/
+.viminfo
+.bash_history
+.env*
