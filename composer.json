@@ -1,17 +1,15 @@
 {
     "require": {		
-		"guzzle/guzzle": "~3.7",
+      	"guzzlehttp/guzzle": "~6.0",
 		"phalcon/incubator": "dev-master",
 		"swiftmailer/swiftmailer": "5.3.*@dev",
 		"hybridauth/hybridauth": "3.0.0.*@dev",
-		"elasticsearch/elasticsearch": "~0.4",
 		"ezyang/htmlpurifier": "dev-master",
 		"mobiledetect/mobiledetectlib": "*",
 		"elasticsearch/elasticsearch": "~1.0",
 		"nesbot/carbon": "~1.18",
 		"symfony/var-dumper": "3.0.*@dev",
 		"league/flysystem": "1.1.*@dev",
-		"vlucas/phpdotenv": "1.1.*@dev"
+        "vlucas/phpdotenv": "^2.2"
     }
 }
-

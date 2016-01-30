@@ -1,4 +1,6 @@
-<?php namespace MC\Controllers;
+<?php
+
+namespace MC\Controllers;
 
 use Phalcon\Mvc\Controller;
 
