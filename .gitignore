@@ -1,6 +1,5 @@
 vendor/
 composer.lock
-app/cache/
 app/logs
 ._*
 .composer/
