@@ -1,13 +1,14 @@
-# phalconphp-skeleton
+# phalcon-skeleton
 
-PhalconPHP Skeleton to start a web project
+Phalcon Skeleton to start a web project
 
-Comes with:
+Includes:
 
-- Env Variables
+- Environment Variables
 - Production / Development model
-- Sessiones
+- Sessions
 - Redis
 - Memcache
-- Elastic
-- Phalcon Model , View cache configured
+- Elastic Search
+- Phalcon Model
+- Configured View Cache

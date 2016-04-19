@@ -1,6 +1,6 @@
 <?php
 
-namespace MC\Controllers;
+namespace Phalcon\Controllers;
 
 class IndexController extends ControllerBase
 {
@@ -12,7 +12,7 @@ class IndexController extends ControllerBase
      */
     public function indexAction()
     {
-
+        //
     }
 
     /**
@@ -22,6 +22,6 @@ class IndexController extends ControllerBase
      */
     public function notFoundAction()
     {
-
+        //
     }
 }
