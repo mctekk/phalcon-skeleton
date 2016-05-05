@@ -19,7 +19,7 @@ try {
 
     //debug
     if (!$config->application->production) {
-        $debug = new \Phalcon\Debug();s
+        $debug = new \Phalcon\Debug();
         $debug->listen();
     } else {
         error_reporting(0);
