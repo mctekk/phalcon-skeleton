@@ -41,13 +41,13 @@ $di->set('view', function () use ($config) {
 
             $volt->setOptions([
                 'compiledPath' => $config->application->cache->voltDir,
-                'compiledSeparator' => '_'
+                'compiledSeparator' => '_',
             ]);
 
             return $volt;
         },
         '.phtml' => 'Phalcon\Mvc\View\Engine\Php',
-        '.php' => 'Phalcon\Mvc\View\Engine\Php'
+        '.php' => 'Phalcon\Mvc\View\Engine\Php',
     ]);
 
     return $view;
@@ -95,7 +95,7 @@ $di->set('dispatcher', function () use ($di, $config) {
                     default:
                         $dispatcher->forward([
                             'controller' => 'index',
-                            'action' => 'notFound'
+                            'action' => 'notFound',
                         ]);
 
                         return false;
@@ -119,7 +119,7 @@ $di->set('db', function () use ($config, $di) {
         'username' => $config->database->username,
         'password' => $config->database->password,
         'dbname' => $config->database->dbname,
-        'charset' => $config->database->charset
+        'charset' => $config->database->charset,
     ]);
 
     //profile sql queries
@@ -134,7 +134,7 @@ $di->set('db', function () use ($config, $di) {
                 $sqlVariables = $connection->getSQLVariables();
                 if (count($sqlVariables)) {
                     $logger->log(
-                        $connection->getSQLStatement(). ' BINDS => ' . join(', ', $sqlVariables),
+                        $connection->getSQLStatement() . ' BINDS => ' . join(', ', $sqlVariables),
                         Logger::INFO
                     );
                 } else {
@@ -166,7 +166,7 @@ $di->set('modelsMetadata', function () use ($config) {
     }
 
     return new MetaDataAdapter([
-        'metaDataDir' => $config->application->cache->metadataDir
+        'metaDataDir' => $config->application->cache->metadataDir,
     ]);
 }, true);
 
@@ -182,13 +182,13 @@ $di->set('modelsCache', function () use ($config) {
     } else {
         // By default cache data for 1 day
         $frontCache = new \Phalcon\Cache\Frontend\Data([
-            'lifetime' => 86400
+            'lifetime' => 86400,
         ]);
 
         // Memcached connection settings
         $cache = new \Phalcon\Cache\Backend\Memcache($frontCache, [
             'host' => $config->memcache->host,
-            'port' => $config->memcache->port
+            'port' => $config->memcache->port,
         ]);
     }
 
@@ -216,7 +216,7 @@ $di->set('session', function () use ($config) {
         // optional (standard: [empty_string])
         'prefix' => strtolower($config->application->siteName) . '-',
         // mandatory in this case, set to false as permanent sessions are not desirable
-        'persistent' => false
+        'persistent' => false,
     ]);
 
     //only start the session if its not already started
@@ -233,14 +233,14 @@ $di->set('session', function () use ($config) {
 $di->set('cache', function () use ($config) {
     //Create a Data frontend and set a default lifetime to 1 hour
     $frontend = new Phalcon\Cache\Frontend\Data([
-        'lifetime' => 3600
+        'lifetime' => 3600,
     ]);
 
     // Set up Memcached and use tracking to be able to clean it later.
     // You should not use tracking if you're going to store a lot of keys!
     $cache = new Phalcon\Cache\Backend\Memcache($frontend, [
         'host' => $config->memcache->host,
-        'port' => $config->memcache->port
+        'port' => $config->memcache->port,
     ]);
 
     return $cache;
@@ -282,7 +282,7 @@ $di->set('flash', function () {
  * Hmlt purifier
  */
 $di->set('purifier', function () use ($config) {
-    require_once($config->application->vendorDir . 'ezyang/htmlpurifier/library/HTMLPurifier.auto.php');
+    require_once ($config->application->vendorDir . 'ezyang/htmlpurifier/library/HTMLPurifier.auto.php');
 
     $hpConfig = \HTMLPurifier_Config::createDefault();
     $hpConfig->set('HTML.Allowed', '');
@@ -309,4 +309,19 @@ $di->set('elasticSearch', function () use ($config) {
     ]);
 
     return $client;
+});
+
+$di->set('config', $config);
+
+/**
+ * System Log using monolog
+ */
+$di->set('log', function ($file = 'debug') use ($config, $di) {
+
+    // Create the logger
+    $logger = new MonoLogger('PHALCON.WEB');
+    // Now add some handlers
+    $logger->pushHandler(new StreamHandler(APP_PATH . "/app/logs/" . $file . '.log', Logger::DEBUG));
+
+    return $logger;
 });

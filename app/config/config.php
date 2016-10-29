@@ -12,7 +12,7 @@ return new \Phalcon\Config([
         'password' => getenv('DATABASE_PASS'),
         'dbname' => getenv('DATABASE_NAME'),
         'charset' => getenv('DATABASE_CHARSET'),
-        'debugLog' => getenv('QUERY_DEBUG_LOG')
+        'debugLog' => getenv('QUERY_DEBUG_LOG'),
     ],
     'application' => [
         'siteName' => getenv('SITE_NAME'),
@@ -30,38 +30,38 @@ return new \Phalcon\Config([
             'voltDir' => __DIR__ . '/../../app/cache/volt/',
             'viewsDir' => __DIR__ . '/../../app/cache/views/',
             'viewsPrefix' => getenv('VIEWS_CACHE_PREFIX'),
-            'metadataDir' => __DIR__ . '/../../app/cache/metaData/'
+            'metadataDir' => __DIR__ . '/../../app/cache/metaData/',
         ],
         'debug' => [
             'profile' => getenv('DEBUG_PROFILE'),
-            'logQueries' => getenv('DEBUG_QUERY')
-        ]
+            'logQueries' => getenv('DEBUG_QUERY'),
+        ],
     ],
     'namespace' => [
         'controller' => 'Phalcon\Controllers',
         'models' => 'Phalcon\Models',
-        'library' => 'Phalcon'
+        'library' => 'Phalcon',
     ],
     'beanstalk' => [
         'host' => getenv('BEANSTALK_HOST'),
         'port' => getenv('BEANSTALK_PORT'),
-        'prefix' => getenv('BEANSTALK_PREFIX')
+        'prefix' => getenv('BEANSTALK_PREFIX'),
     ],
     'memcache' => [
         'host' => getenv('MEMCACHE_HOST'),
-        'port' => getenv('MEMCACHE_PORT')
+        'port' => getenv('MEMCACHE_PORT'),
     ],
     'redis' => [
         'host' => getenv('REDIS_HOST'),
-        'port' => getenv('REDIS_HOST')
+        'port' => getenv('REDIS_HOST'),
     ],
     'elasticSearch' => [
-        'hosts' => getenv('ELASTIC_HOST')
+        'hosts' => getenv('ELASTIC_HOST'),
     ],
     'email' => [
         'host' => getenv('EMAIL_HOST'),
         'port' => getenv('EMAIL_PORT'),
         'username' => getenv('EMAIL_USER'),
-        'password' => getenv('EMAIL_PASS')
-    ]
+        'password' => getenv('EMAIL_PASS'),
+    ],
 ]);

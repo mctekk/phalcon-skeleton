@@ -5,3 +5,4 @@
 .bash*
 .env*
 .sw*
+composer.lock
