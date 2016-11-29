@@ -8,11 +8,6 @@ try {
     define('APP_PATH', realpath('..'));
 
     /**
-     * Autoloader composer
-     */
-    require_once __DIR__ . '/../vendor/autoload.php';
-
-    /**
      * Read the configuration
      */
     $config = include __DIR__ . '/../app/config/config.php';
