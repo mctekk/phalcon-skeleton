@@ -58,7 +58,7 @@ return new \Phalcon\Config([
     ],
     'redis' => [
         'host' => getenv('REDIS_HOST'),
-        'port' => getenv('REDIS_HOST'),
+        'port' => getenv('REDIS_PORT'),
     ],
     'elasticSearch' => [
         'hosts' => getenv('ELASTIC_HOST'),
